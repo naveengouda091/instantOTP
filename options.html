@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gmail OTP Fast Copier - Settings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="options-container">
+    <header class="options-header">
+      <div class="brand">
+        <div class="logo">🔑</div>
+        <div>
+          <h1>Gmail OTP Copier Settings</h1>
+          <p>Customize detection behavior, notifications, and clipboard options</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="settings-body">
+      <!-- General Preferences -->
+      <section class="settings-section">
+        <h2>General Preferences</h2>
+        
+        <div class="setting-row">
+          <div class="setting-info">
+            <label>1-Click Copy Mode</label>
+            <p>Show 'Copy Code' button on notifications and popup (default behavior)</p>
+          </div>
+          <div class="setting-control">
+            <label class="switch">
+              <input type="checkbox" id="opt-oneclick" checked disabled>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label>Auto-Copy to Clipboard</label>
+            <p>Automatically copy OTP to system clipboard immediately upon arrival</p>
+          </div>
+          <div class="setting-control">
+            <label class="switch">
+              <input type="checkbox" id="opt-autocopy">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label>Sound Notification Alert</label>
+            <p>Play a audio chime sound when a new OTP email is detected</p>
+          </div>
+          <div class="setting-control">
+            <label class="switch">
+              <input type="checkbox" id="opt-sound">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Advanced Polling & Keywords -->
+      <section class="settings-section">
+        <h2>Detection & Polling</h2>
+
+        <div class="setting-row vertical">
+          <div class="setting-info">
+            <label>Gmail Polling Interval</label>
+            <p>How frequently the extension checks Gmail in the background</p>
+          </div>
+          <div class="setting-control">
+            <select id="opt-interval" class="custom-select">
+              <option value="10">Every 10 seconds (Ultra fast)</option>
+              <option value="15" selected>Every 15 seconds (Recommended)</option>
+              <option value="30">Every 30 seconds</option>
+              <option value="60">Every 1 minute</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="setting-row vertical">
+          <div class="setting-info">
+            <label>Custom OTP Keywords</label>
+            <p>Comma-separated list of keywords to identify verification emails</p>
+          </div>
+          <div class="setting-control">
+            <textarea id="opt-keywords" rows="3" class="custom-textarea" placeholder="otp, verification, code, pin, passcode, 2fa"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- Data Management -->
+      <section class="settings-section">
+        <h2>Data & Privacy</h2>
+        <div class="setting-row">
+          <div class="setting-info">
+            <label>Clear Saved History</label>
+            <p>Remove all stored OTP entries from extension memory</p>
+          </div>
+          <div class="setting-control">
+            <button id="btn-clear-history" class="btn-danger">Clear History</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Save Button Footer -->
+      <div class="action-footer">
+        <button id="btn-save" class="btn-save">Save Settings</button>
+        <span id="save-msg" class="save-msg hidden">Saved successfully!</span>
+      </div>
+    </main>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
