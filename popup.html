@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gmail OTP Fast Copier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="logo-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L3 7V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V7L12 2Z" fill="url(#brand-grad)" stroke="#ffffff" stroke-width="1.5"/>
+            <path d="M12 11V15M10 13H14" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="brand-grad" x1="3" y1="2" x2="21" y2="23" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#EA4335"/>
+                <stop offset="1" stop-color="#7C3AED"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>Gmail OTP Copier</h1>
+          <span class="status-indicator">
+            <span class="pulse-dot"></span>
+            <span id="status-text">Active Monitoring</span>
+          </span>
+        </div>
+      </div>
+      <button id="btn-refresh" class="icon-btn" title="Refresh Feed">
+        <svg class="spin-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Quick Controls Bar -->
+    <section class="controls-bar">
+      <div class="control-item">
+        <span class="control-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 5L6 9H2V15H6L11 19V5Z"/>
+            <path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/>
+          </svg>
+          Sound Alert
+        </span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle-sound">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="control-item">
+        <span class="control-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/>
+            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+          </svg>
+          Auto Copy
+        </span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle-autocopy">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Search & Filter -->
+    <div class="search-box">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" id="search-input" placeholder="Search OTPs or services...">
+    </div>
+
+    <!-- OTP List Section -->
+    <main class="otp-section">
+      <div id="otp-list" class="otp-list">
+        <!-- Dynamic OTP Cards populated by popup.js -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="empty-state hidden">
+        <div class="empty-icon">📫</div>
+        <h3>No OTPs Found Yet</h3>
+        <p>When you receive a verification email in Gmail, your OTP code will appear here with 1-click instant copy!</p>
+      </div>
+    </main>
+
+    <!-- Footer Toast -->
+    <div id="toast" class="toast hidden">
+      <span id="toast-message">Copied to clipboard!</span>
+    </div>
+
+    <!-- Footer Links -->
+    <footer class="app-footer">
+      <span class="version">v1.0.0</span>
+      <a href="#" id="btn-options">Settings</a>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
